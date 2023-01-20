@@ -24,6 +24,7 @@ export interface TagsInputProps {
     input?: string;
     tag?: string;
   };
+  inputRef?: React.Ref<any> | null;
 }
 
 const defaultSeparators = ["Enter"];
@@ -43,6 +44,7 @@ export const TagsInput = ({
   beforeAddValidate,
   onKeyUp,
   classNames,
+  inputRef
 }: TagsInputProps) => {
   const [tags, setTags] = useState<any>(value || []);
 
@@ -116,6 +118,7 @@ export const TagsInput = ({
           onBlur={onBlur}
           disabled={disabled}
           onKeyUp={onKeyUp}
+          ref={inputRef}
         />
       </div>
 
