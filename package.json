@@ -4,7 +4,7 @@
   "version": "2.0.2",
   "license": "MIT",
   "author": "Harsh Zalavadiya",
-  "repository": "https://github.com/hc-oss/react-tag-input-component",
+  "repository": "https://github.com/sobchenyuk/react-tag-input-component",
   "main": "./dist/index.js",
   "module": "./dist/esm/index.js",
   "types": "./dist/index.d.ts",
