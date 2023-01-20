@@ -48,11 +48,11 @@
 }
 
 .rti--input {
-    border: 0;
-    outline: 0;
-    font-size: inherit;
-    line-height: inherit;
-    width: 50%;
+  border: 0;
+  outline: 0 !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  width: 50%;
   visibility: visible;
   transform: translateZ(0);
   flex: 1 1 auto;
@@ -60,10 +60,16 @@
   grid-area: 1 / 1 / 2 / 3;
   grid-template-columns: 0 min-content;
   margin: 2px;
-  padding-bottom: 2px;
-  padding-top: 2px;
-  color: rgb(51, 65, 85);
+  padding-bottom: 2px !important;
+  padding-top: 2px !important;
+  color: #334155;
   box-sizing: border-box;
+  padding-left: 0 !important;
+}
+
+.rti--input:focus {
+  box-shadow: 0 0 0 0 !important;
+  border-color: transparent !important;
 }
 
 .rti--tag {
