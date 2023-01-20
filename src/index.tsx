@@ -68,6 +68,7 @@ export const TagsInput = ({
       e.key === "Backspace"
     ) {
       e.target.value = isEditOnRemove ? `${tags.at(-1)} ` : "";
+      // @ts-ignore
       setTags([...tags.slice(0, -1)]);
     }
 
@@ -89,28 +90,42 @@ export const TagsInput = ({
     onRemoved && onRemoved(text);
   };
 
+  const onTagsClear = () => {
+    setTags([]);
+  }
+
   return (
     <div aria-labelledby={name} className="rti--container">
-      {tags.map(tag => (
-        <Tag
-          key={tag}
-          className={classNames?.tag}
-          text={tag}
-          remove={onTagRemove}
-          disabled={disabled}
-        />
-      ))}
+      <div className="rti--wrap">
+        {tags.map(tag => (
+          <Tag
+            key={tag}
+            className={classNames?.tag}
+            text={tag}
+            remove={onTagRemove}
+            disabled={disabled}
+          />
+        ))}
 
-      <input
-        className={cc("rti--input", classNames?.input)}
-        type="text"
-        name={name}
-        placeholder={placeHolder}
-        onKeyDown={handleOnKeyUp}
-        onBlur={onBlur}
-        disabled={disabled}
-        onKeyUp={onKeyUp}
-      />
+        <input
+          className={cc("rti--input", classNames?.input)}
+          type="text"
+          name={name}
+          placeholder={placeHolder}
+          onKeyDown={handleOnKeyUp}
+          onBlur={onBlur}
+          disabled={disabled}
+          onKeyUp={onKeyUp}
+        />
+      </div>
+
+      {tags.length > 0 && (
+        <div className="rti--clear-container">
+          <div onClick={onTagsClear} className="rti--clear">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
