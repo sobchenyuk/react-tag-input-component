@@ -101,9 +101,9 @@ export const TagsInput = ({
   return (
     <div aria-labelledby={name} className="rti--container">
       <div className="rti--wrap">
-        {tags.map(tag => (
+        {tags.map((tag, i) => (
           <Tag
-            key={tag}
+            key={i.toString()}
             className={classNames?.tag}
             text={tag}
             remove={onTagRemove}
@@ -124,7 +124,7 @@ export const TagsInput = ({
         />
       </div>
 
-      {tags.length > 0 && isClear && (
+      {tags.length > 0 && !isClear && (
         <div className="rti--clear-container">
           <div onClick={onTagsClear} className="rti--clear">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>

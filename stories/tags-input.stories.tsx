@@ -31,6 +31,7 @@ export const Page = () => {
         disabled={disabled}
         isEditOnRemove={isEditOnRemove}
         beforeAddValidate={beforeAddValidate}
+        isClear={true}
       />
       <div style={{ marginTop: "2rem" }}>
         <button
