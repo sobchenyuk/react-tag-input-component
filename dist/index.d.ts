@@ -19,7 +19,8 @@ interface TagsInputProps {
         tag?: string;
     };
     inputRef?: React.Ref<any> | null;
+    isClear?: boolean;
 }
-declare const TagsInput: ({ name, placeHolder, value, onChange, onBlur, separators, disableBackspaceRemove, onExisting, onRemoved, disabled, isEditOnRemove, beforeAddValidate, onKeyUp, classNames, inputRef }: TagsInputProps) => JSX.Element;
+declare const TagsInput: ({ name, placeHolder, value, onChange, onBlur, separators, disableBackspaceRemove, onExisting, onRemoved, disabled, isEditOnRemove, beforeAddValidate, onKeyUp, classNames, inputRef, isClear }: TagsInputProps) => JSX.Element;
 
 export { TagsInput, TagsInputProps };
