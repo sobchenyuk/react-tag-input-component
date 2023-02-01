@@ -15,7 +15,7 @@ export interface TagsInputProps {
   separators?: string[];
   disableBackspaceRemove?: boolean;
   onExisting?: (tag: string) => void;
-  onRemoved?: (tag: string) => void;
+  onRemoved?: ({ tag, index }: { tag: string, index: number }) => void;
   disabled?: boolean;
   isEditOnRemove?: boolean;
   beforeAddValidate?: (tag: string, existingTags: string[]) => boolean;
@@ -91,7 +91,10 @@ export const TagsInput = ({
 
   const onTagRemove = text => {
     setTags(tags.filter(tag => tag !== text));
-    onRemoved && onRemoved(text);
+    onRemoved && onRemoved({
+      tag: text,
+      index: tags.indexOf(text)
+    });
   };
 
   const onTagsClear = () => {

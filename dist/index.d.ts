@@ -9,7 +9,10 @@ interface TagsInputProps {
     separators?: string[];
     disableBackspaceRemove?: boolean;
     onExisting?: (tag: string) => void;
-    onRemoved?: (tag: string) => void;
+    onRemoved?: ({ tag, index }: {
+        tag: string;
+        index: number;
+    }) => void;
     disabled?: boolean;
     isEditOnRemove?: boolean;
     beforeAddValidate?: (tag: string, existingTags: string[]) => boolean;
